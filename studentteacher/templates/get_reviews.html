@@ -1,0 +1,23 @@
+{% extends 'student_base.html' %}
+{% block content %}   
+<h1>Reviews</h1>
+<div class="w3-container">
+       
+        <table id=table1 border=1>
+        <tr>
+        <th width="150">From</th>
+        <th width="150">Reviews</th>
+
+        </tr>
+        
+        {% for tea_review in get_review %}
+        <tr>
+        <td>{{ tea_review.review_teacher}}</td>
+        <td>{{ tea_review.review_stars }}</td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</div>
+{% endblock %}  
+   

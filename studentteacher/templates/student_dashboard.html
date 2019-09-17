@@ -1,0 +1,17 @@
+{% extends 'student_base.html' %}
+{% block content %}             
+                
+<div class="w3-container">
+        {% if user.is_authenticated %}
+            <h2>Hi {{ user.username }}!</h2>
+            <h3>Welcome to student dashboard.</h3>
+        {% else %}
+            <h2>Welcome to student dashboard.</h2>
+
+            <h3>You are not logged in</h3>
+            <h3>Please Login</h3>
+        {% endif %}
+
+</div>
+{% endblock %}
+   

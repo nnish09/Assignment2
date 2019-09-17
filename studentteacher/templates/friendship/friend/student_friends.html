@@ -1,0 +1,28 @@
+{% extends 'student_base.html' %}
+{% block content %}
+{% load friendshiptags %}
+<h1>Your Friends</h1>
+<div class="w3-container">
+       
+    <table id=table1 border=1>
+    <tr>
+    <th width="200">Friends</th>
+    <th width="400"></th>
+    </tr>
+    {% for b in friends %} 
+    <tr>
+    <td>{% get_by_name friendship_context_object_name as var %}
+        {{ b.username }}</td>
+    <td><form method="post" action="{% url 'request_assign' b.id %}">
+        {% csrf_token %}
+        <input type="hidden" name="requested" value=True />
+        <input type="submit" value="Request Assignment" />
+        </form>
+    </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
+

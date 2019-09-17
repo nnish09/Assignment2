@@ -1,0 +1,29 @@
+{% extends 'student_base.html' %}
+{% block content %}   
+<h1>Assignments</h1>
+<div class="w3-container">
+       
+        <table id=table1 border=1>
+        <tr>
+        <th width="150">From</th>
+        <th width="150">Title</th>
+        <th width="150">Assignment</th>
+        <th width="150">Submission Date</th>
+
+        </tr>
+        
+        {% for get_assign in getassignments %}
+        <tr>
+        <td>{{ get_assign.teacher}}</td>
+        <td>{{ get_assign.title }}</td>
+        <td><a href="{{ get_assign.assignment.url }}">{{ get_assign.assignment }}</a></td>
+        <td>{{ get_assign.submission_date }}</td>
+        <td><a href="{% url 'submit_assignment' get_assign.teacher.id %}"><button type="button" class="button">Submit Assignment</button></a>
+        </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</div>
+{% endblock %}  
+   

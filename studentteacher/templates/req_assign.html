@@ -1,0 +1,23 @@
+{% extends 'teacher_base.html' %}
+{% block content %}   
+<h1>List of Requested Assignments</h1>
+<div class="w3-container">
+       
+        <table id=table1 border=1>
+        <tr>
+        <th width="200">Name</th>
+        <th width="200">Description</th>
+        </tr>
+        
+        {% for assign in assign_req %}
+        <tr>
+        <td>{{ assign.req_student }}</td>
+        <td><a href="{% url 'assignment' assign.id %}"><button type="button" class="button">Send Assignment</button></a>
+        </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</div>
+{% endblock %}  
+   

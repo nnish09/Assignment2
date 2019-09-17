@@ -1,0 +1,29 @@
+{% extends 'teacher_base.html' %}
+{% block content %}   
+<h1>Assignments From Students</h1>
+<div class="w3-container">
+       
+        <table id=table1 border=1>
+        <tr>
+        <th width="150">From</th>
+        <th width="150">Title</th>
+        <th width="150">Assignment</th>
+        <th width="150">Submission Date</th>
+
+        </tr>
+        
+        {% for get_submit_assign in get_submit_assignments %}
+        <tr>
+        <td>{{ get_submit_assign.sub_student }}</td>
+        <td>{{ get_submit_assign.sub_title }}</td>
+        <td><a href="{{ get_submit_assign.submitted_assignment.url }}">{{ get_submit_assign.submitted_assignment }}</a></td>
+        <td>{{ get_submit_assign.submitted_at }}</td>
+        <td><a href="{% url 'review_assignment' get_submit_assign.sub_student.id %}"><button type="button" class="button">Review Assignment</button></a>
+        </td>
+        </tr>
+        {% endfor %}
+        </table>
+
+</div>
+{% endblock %}  
+   

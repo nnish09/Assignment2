@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+       
+<h1>Welcome {{ user.username }}</h1>
+<img src="{{ user.profimg.url }}"  height = "200px" width="200px">
+
+<div class="w3-container">
+    
+    <p>Username: {{ user.username }} </p>
+    <p>First Name: {{ user.first_name }} </p>   
+    <p>Last Name: {{ user.last_name }} </p>
+    <p>Email: {{ user.email }} </p>
+    <p>Role: {{ user.role }} </p>
+    <p>Address: {{ user.address }} </p>
+
+
+    <a href="{% url 'editprofile' %}"><button class="button">Edit Profile</button></a>
+
+
+</div>
+{% endblock %}  
+   

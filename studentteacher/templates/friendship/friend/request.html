@@ -1,0 +1,32 @@
+{% extends 'teacher_base.html' %}
+{% block content %}      
+
+
+<h1>Requests Details</h1>
+<div class="w3-container">
+       
+        <table id=table1 border=1>
+        <tr>
+        <th width="200">Request</th>
+        <th width="200">Accept</th>
+        <th width="200">Reject</th>
+        </tr>
+        
+       
+        <tr>
+        <td>{{ friendship_request.from_user }} wants to be friends with {{ friendship_request.to_user }}</td>
+        <td><form method="post" action="{% url 'friendship_accept' friendship_request.pk %}">
+            {% csrf_token %}
+            <input type="submit" value="accept" />
+            </form></td>
+
+        <td><form method="post" action="{% url 'friendship_reject' friendship_request.pk %}">
+            {% csrf_token %}
+            <input type="submit" value="reject" />
+            </form>
+        </td>
+        </tr>
+        </table>
+
+</div>
+{% endblock %}

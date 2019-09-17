@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+        <script>
+        function Captcha(){
+            var alpha = new Array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+                'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', 
+                    '0','1','2','3','4','5','6','7','8','9');
+            var i;
+            for (i=0;i<6;i++){
+                var a = alpha[Math.floor(Math.random() * alpha.length)];
+                var b = alpha[Math.floor(Math.random() * alpha.length)];
+                var c = alpha[Math.floor(Math.random() * alpha.length)];
+                var d = alpha[Math.floor(Math.random() * alpha.length)];
+                var e = alpha[Math.floor(Math.random() * alpha.length)];
+                var f = alpha[Math.floor(Math.random() * alpha.length)];
+                var g = alpha[Math.floor(Math.random() * alpha.length)];
+                            }
+                var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+                document.getElementById("mainCaptcha").innerHTML = code
+                document.getElementById("mainCaptcha").value = code
+            }
+                function ValidCaptcha(){
+                    var string1 = removeSpaces(document.getElementById('mainCaptcha').value);
+                    var string2 = removeSpaces(document.getElementById('txtInput').value);
+                    if (string1 == string2){
+                            // return true;
+                            return document.getElementById("submit").disabled = false;
+                    }else{        
+                        return false;
+                        }
+                }
+                function removeSpaces(string){
+                    return string.split(' ').join('');
+                }    
+        </script>
+        <style>
+        #login .container4 #login-row #login-column #login-box {
+            margin-top: 50px;
+            margin-left: 30%;
+            max-width: 600px;
+            height: 650px;
+            border: 1px solid lightgrey;
+            background-color: #eaeaea;
+            
+        }
+        #login .container4 #login-row #login-column #login-box #login-form {
+            padding: 30px;
+            
+        }
+        #login .container4 #login-row #login-column #login-box #login-form{
+            margin-top: -40px;
+        }
+        input[type=submit]{
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10%;
+        }
+
+        input[type=submit]:hover {
+            background-color: green;
+        }
+        input[type=text],input[type=email] {
+            width: 95%;
+            height:30px;
+            border: 1px solid #ebebeb;
+            border-radius: 5px;
+            margin-left:10;
+        }
+        h2{
+            margin-top: 20px;
+            text-align:center;
+        }
+        #register-link{
+            margin-left: 10%;
+        }
+        #mainCaptcha, #refresh, #txtInput,#Button1{
+            margin-top: 10px;
+
+        }
+        body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav-right {
+  float: right;
+}
+.w3-container{
+ 
+ text-align: center;
+
+}
+form{
+                margin-left: 10px;
+                text-align: center;
+                float: left;
+        }
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5%;
+}
+
+.button:hover {
+  background-color: green;
+}
+label{
+        margin-top: 20px;
+        width: 100px;
+        height: 30px;
+        
+        background-color: #EAEAEA;
+}
+input[type=text],input[type=email]{
+        margin-top: 20px;
+        width: 200px;
+        height: 25px;
+}
+h2{
+  margin-top: 40px;
+  text-align: center;
+}
+.edit{
+        margin-top: 40px;
+        margin-left: 30%;
+        max-width: 400px;
+        height: 550px;
+        border: 1px solid lightgrey;
+        background-color: #EAEAEA;
+        
+      }
+    </style>
+    </head>
+    <body>
+        <div class="topnav">
+
+        <div class="topnav-right">
+            <a href="{% url 'home' %}">Home</a>
+            
+        
+        </div>
+        </div>
+        <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:20%;height:100%">
+            <h3 class="w3-bar-item">Menu</h3>
+            <a href="{% url 'home' %}" class="w3-bar-item w3-button">Home</a>
+        </div>
+                      
+                              
+        <div class="section-header text-center">
+            <h2 class="section-title wow fadeInDown" data-wow-delay="0.3s" >Login</h2>
+            <div class="shape wow fadeInDown" data-wow-delay="0.3s"></div>
+        </div>
+
+        <!------ Include the above in your HEAD tag ---------->
+
+        <div id="login">
+                
+            <div class="container">
+                <div id="login-row" class="row justify-content-center align-items-center">
+                    <div id="login-column" class="col-md-6">
+                        <div id="login-box" class="col-md-12">
+                            <form id="login-form" class="form" action="" method="post">
+                                {% csrf_token %}
+                                <h3 class="text-center text-info">Login</h3>
+                                <div class="form-group">
+                                    <label for="username" class="text-info">Username:</label><br>
+                                    <input type="text" name="username" id="username" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" class="text-info">Password:</label><br>
+                                    <input type="password" name="password" id="password" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                </div>
+                                 <div class="form-group">
+                                    <a href="" id="register-link">Register here</a>
+                                 </div> 
+                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div> 
+    </body>
+</html>
+

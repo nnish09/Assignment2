@@ -1,0 +1,7 @@
+{% extends 'student_base.html' %}
+{% block content %}      
+
+{% if not teacher_id == request.user.id %}
+{% if errors %}<p>{{ errors|join:", " }}</p>{% endif %}
+{% endif %}
+{% endblock %}

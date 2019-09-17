@@ -1,0 +1,31 @@
+{% extends 'teacher_base.html' %}
+{% block content %}      
+
+
+
+    <h1>Friend Requests</h1>
+<div class="w3-container">
+       
+        <table id=table1 border=1>
+        <tr>
+        <th width="200">From</th>
+        <th width="200">To</th>
+        <th width="200">Request</th>
+        </tr>
+        
+        {% for friendship_request in requests %}
+        <tr>
+        <td>{{ friendship_request.from_user }}</td>
+        <td>{{ friendship_request.to_user }}</td>
+
+        <td><a href="{% url 'request_detail' friendship_request.id %}"><button type="button" class="button">View Request</button></a>
+        </td>
+        </tr>
+        {% empty %}
+        <div>no requests :(</div>
+    
+        {% endfor %}
+        </table>
+
+</div>
+{% endblock %}

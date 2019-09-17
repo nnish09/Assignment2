@@ -1,0 +1,23 @@
+{% extends 'teacher_base.html' %}
+{% block content %}
+{% load friendshiptags %}
+<h1>Your Friends</h1>
+<div class="w3-container">
+       
+    <table id=table1 border=1>
+    <tr>
+    <th width="200">Friends</th>
+    <th width="200"></th>
+    </tr>
+   {% for a in friends %} 
+    <tr>
+    <td>{% get_by_name friendship_context_object_name as var %}
+        {{ a.username }}</td>
+    <td><a href="{% url 'assignment' a.id %}"><button type="button" class="button">Send Assignment</button></a>
+    </td>
+    </tr>
+    {% endfor %}
+    </table>
+
+</div>
+{% endblock %}
