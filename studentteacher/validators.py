@@ -16,9 +16,3 @@ def validate_file_extension1(value):
         raise ValidationError(u'Unsupported file extension.')
 
 
-# def submit_validator(value):
-#     if value < 1900 or value > datetime.datetime.now().year:
-#         raise ValidationError(
-#             _('%(value)s is not a correcrt year!'),
-#             params={'value': value},
-#         )
